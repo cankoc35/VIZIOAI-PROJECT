@@ -474,6 +474,7 @@ This means most jobs can remain one chunk, and only the longest descriptions wou
 
 Recommended indexing:
 - vector index for semantic similarity
+- full-text index for keyword search, for example a PostgreSQL `tsvector` index or a BM25-based search layer
 - metadata filters for exact constraints such as country, workplace type, seniority, or work authorization
 - hybrid retrieval that combines both
 
