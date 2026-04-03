@@ -83,5 +83,5 @@ This writes:
 
 ## Notes
 
-- Part 1 schema and mapping notes are in [docs/schema.md](/Users/cankoc/Desktop/VizioAiProject/docs/schema.md).
-- Part 2 and Part 3 design notes are in [docs/design_notes.md](/Users/cankoc/Desktop/VizioAiProject/docs/design_notes.md).
+- Part 1 schema and mapping notes are in [docs/schema.md](docs/schema.md).
+- Part 2 and Part 3 design notes are in [docs/design_notes.md](docs/design_notes.md).
