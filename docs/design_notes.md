@@ -271,11 +271,31 @@ This keeps AI focused on ranking quality rather than replacing hard business rul
 
 #### Explainability
 
-Every match should return reasons, for example:
+The matcher should return both an overall score and component-level explanations so recruiters can understand why a candidate was ranked highly or filtered out.
+
+Example explanation structure:
+
+- `overall_match_score`
+- `skill_score`
+- `title_score`
+- `seniority_score`
+- `location_score`
+- `compensation_score`
+- `top_reasons`
+
+Example recruiter-facing reasons:
 - matched on `python`, `sql`, and `airflow`
-- seniority aligned
-- remote preference aligned
-- compensation overlap exists
+- role/title similarity is strong
+- seniority is aligned
+- remote preference is compatible
+- compensation ranges overlap
+
+Hard filters should also be explainable:
+- work authorization mismatch
+- strong location mismatch
+- compensation gap too large
+
+If AI-based reranking is added later, it should appear as an additional semantic signal rather than the only explanation. The core explanation should still be grounded in structured facts the recruiter can review quickly.
 
 #### MVP vs Future
 
