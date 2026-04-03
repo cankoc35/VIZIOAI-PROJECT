@@ -462,6 +462,16 @@ If text is very long, use a hybrid approach:
 - keep one primary entity document
 - add secondary text chunks only for oversized descriptions
 
+A practical RAG job document shape:
+
+- `title + company + location + workplace + employment + seniority + salary + description`
+- average: `2,895.6` chars
+- median: `2,506`
+- p90: `5,988.2` (90% of the job-document rows are at or below about 5,988 characters)
+- max: `33,883` (dice_413ccff7-0ec3-4e59-9b0e-3751b3a3600b)
+
+This means most jobs can remain one chunk, and only the longest descriptions would need secondary chunking.
+
 Recommended indexing:
 - vector index for semantic similarity
 - metadata filters for exact constraints such as country, workplace type, seniority, or work authorization
