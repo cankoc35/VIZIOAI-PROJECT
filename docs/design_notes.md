@@ -425,13 +425,30 @@ The recruiter assistant should retrieve from normalized recruiter-facing entitie
 
 #### What Goes Into RAG
 
+The RAG corpus should be built from normalized recruiter-facing entities, not raw ingestion payloads. Each document type should represent a meaningful business object that a recruiter may ask about.
+
 - normalized job records
+  Each job document should include title, company, location, workplace type, employment type, seniority, salary summary, normalized skills, and cleaned description text.
+
 - job skills
+  These can be stored either inside the main job document or as linked supporting records so the assistant can answer skill-specific queries such as "show jobs requiring Python and Airflow."
+
 - candidate profiles
+  Each candidate document should include current title, current company, years of experience, seniority, summary, and other recruiter-facing profile fields.
+
 - candidate skills and preferences
+  Candidate documents should also include normalized skills, preferred roles, location preferences, remote preference, compensation expectations, and work authorization because these are essential for fit-based retrieval and matching explanations.
+
 - company profiles and enrichment summaries
+  Company documents should include canonical company identity, website/domain, LinkedIn URL, industry, employee size band, headquarters, company description, and any important enrichment signals useful for recruiter targeting or outbound workflows.
+
 - hiring intent summaries
+  These documents should summarize company-level hiring behavior, such as recent posting volume, role diversity, location spread, senior-role presence, hiring-intent score, confidence score, and a short explanation of the signal.
+
 - match summaries or explanations
+  These are useful when the system already computed candidate-job matches. They should include candidate ID, job ID, total match score, component scores, and top reasons so the assistant can explain rankings instead of only retrieving raw records.
+
+These document types give the recruiter assistant access to both the core entities and the derived signals needed for search, explanation, and recommendation.
 
 #### How to Structure and Index It
 
