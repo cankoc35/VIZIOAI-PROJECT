@@ -1,0 +1,111 @@
+<svg width="1400" height="920" viewBox="0 0 1400 920" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Talent Schema Diagram</title>
+  <desc id="desc">Entity relationship style diagram showing candidates as the parent table connected to candidate skills, role preferences, location preferences, compensation preferences, and work authorization.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f4ee; }
+      .table { fill: #fffdf8; stroke: #1f2937; stroke-width: 2; rx: 10; ry: 10; }
+      .header { fill: #d9e6d2; stroke: #1f2937; stroke-width: 2; }
+      .title { font: 700 22px Georgia, serif; fill: #111827; }
+      .label { font: 600 18px Georgia, serif; fill: #111827; }
+      .text { font: 15px 'Helvetica Neue', Arial, sans-serif; fill: #1f2937; }
+      .small { font: 13px 'Helvetica Neue', Arial, sans-serif; fill: #4b5563; }
+      .line { stroke: #355c7d; stroke-width: 2.5; fill: none; }
+      .card { fill: #355c7d; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#355c7d"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="920"/>
+  <text class="title" x="700" y="42" text-anchor="middle">Talent Schema</text>
+  <text class="small" x="700" y="66" text-anchor="middle">Conceptual recruiter-uploaded candidate data model for Part 2</text>
+
+  <!-- candidates -->
+  <rect class="table" x="470" y="110" width="460" height="270"/>
+  <rect class="header" x="470" y="110" width="460" height="48"/>
+  <text class="label" x="700" y="141" text-anchor="middle">candidates</text>
+  <text class="text" x="495" y="186">candidate_id (PK)</text>
+  <text class="text" x="495" y="214">full_name</text>
+  <text class="text" x="495" y="242">current_title</text>
+  <text class="text" x="495" y="270">current_company</text>
+  <text class="text" x="495" y="298">years_experience</text>
+  <text class="text" x="495" y="326">seniority</text>
+  <text class="text" x="495" y="354">summary</text>
+  <text class="text" x="705" y="186">email</text>
+  <text class="text" x="705" y="214">phone</text>
+  <text class="text" x="705" y="242">linkedin_url</text>
+  <text class="text" x="705" y="270">source</text>
+  <text class="text" x="705" y="298">created_at</text>
+  <text class="text" x="705" y="326">updated_at</text>
+
+  <!-- candidate_skills -->
+  <rect class="table" x="70" y="500" width="360" height="220"/>
+  <rect class="header" x="70" y="500" width="360" height="44"/>
+  <text class="label" x="250" y="528" text-anchor="middle">candidate_skills</text>
+  <text class="text" x="92" y="572">candidate_id (FK)</text>
+  <text class="text" x="92" y="600">skill_raw</text>
+  <text class="text" x="92" y="628">skill_normalized</text>
+  <text class="text" x="92" y="656">proficiency_level</text>
+  <text class="text" x="92" y="684">years_experience_with_skill</text>
+  <text class="text" x="92" y="712">is_primary</text>
+
+  <!-- role prefs -->
+  <rect class="table" x="520" y="500" width="360" height="200"/>
+  <rect class="header" x="520" y="500" width="360" height="44"/>
+  <text class="label" x="700" y="528" text-anchor="middle">candidate_role_preferences</text>
+  <text class="text" x="542" y="572">candidate_id (FK)</text>
+  <text class="text" x="542" y="600">preferred_role_title</text>
+  <text class="text" x="542" y="628">role_family</text>
+  <text class="text" x="542" y="656">target_seniority</text>
+  <text class="text" x="542" y="684">priority_rank</text>
+
+  <!-- location prefs -->
+  <rect class="table" x="960" y="500" width="360" height="220"/>
+  <rect class="header" x="960" y="500" width="360" height="44"/>
+  <text class="label" x="1140" y="528" text-anchor="middle">candidate_location_preferences</text>
+  <text class="text" x="982" y="572">candidate_id (FK)</text>
+  <text class="text" x="982" y="600">country</text>
+  <text class="text" x="982" y="628">region</text>
+  <text class="text" x="982" y="656">city</text>
+  <text class="text" x="982" y="684">remote_preference</text>
+  <text class="text" x="982" y="712">willing_to_relocate</text>
+
+  <!-- compensation -->
+  <rect class="table" x="180" y="760" width="420" height="150"/>
+  <rect class="header" x="180" y="760" width="420" height="42"/>
+  <text class="label" x="390" y="787" text-anchor="middle">candidate_compensation_preferences</text>
+  <text class="text" x="202" y="830">candidate_id (FK)</text>
+  <text class="text" x="202" y="858">currency</text>
+  <text class="text" x="202" y="886">minimum_expected_compensation</text>
+  <text class="text" x="390" y="830">maximum_expected_compensation</text>
+  <text class="text" x="390" y="858">compensation_period</text>
+  <text class="text" x="390" y="886">is_negotiable</text>
+
+  <!-- work auth -->
+  <rect class="table" x="760" y="760" width="460" height="150"/>
+  <rect class="header" x="760" y="760" width="460" height="42"/>
+  <text class="label" x="990" y="787" text-anchor="middle">candidate_work_authorization</text>
+  <text class="text" x="782" y="830">candidate_id (FK)</text>
+  <text class="text" x="782" y="858">country</text>
+  <text class="text" x="782" y="886">is_authorized_to_work</text>
+  <text class="text" x="1015" y="830">requires_sponsorship</text>
+  <text class="text" x="1015" y="858">visa_type</text>
+  <text class="text" x="1015" y="886">authorization_notes</text>
+
+  <!-- connectors -->
+  <path class="line" d="M 560 380 C 500 430, 380 450, 290 500" marker-end="url(#arrow)"/>
+  <path class="line" d="M 700 380 L 700 500" marker-end="url(#arrow)"/>
+  <path class="line" d="M 840 380 C 930 430, 1040 450, 1090 500" marker-end="url(#arrow)"/>
+  <path class="line" d="M 620 380 C 540 470, 470 610, 400 760" marker-end="url(#arrow)"/>
+  <path class="line" d="M 780 380 C 850 470, 915 610, 950 760" marker-end="url(#arrow)"/>
+
+  <!-- cardinality labels -->
+  <text class="small" x="545" y="405">1</text>
+  <text class="small" x="300" y="490">many</text>
+  <text class="small" x="710" y="438">many</text>
+  <text class="small" x="1088" y="490">many</text>
+  <text class="small" x="405" y="748">many</text>
+  <text class="small" x="954" y="748">many</text>
+</svg>

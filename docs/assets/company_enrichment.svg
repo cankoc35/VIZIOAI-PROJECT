@@ -1,0 +1,85 @@
+<svg width="1400" height="820" viewBox="0 0 1400 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Company Enrichment Diagram</title>
+  <desc id="desc">Entity relationship style diagram showing companies as the canonical parent table connected to company source links, raw enrichment payloads, and latest normalized enrichment fields.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f6f3ef; }
+      .table { fill: #fffdf9; stroke: #1f2937; stroke-width: 2; rx: 10; ry: 10; }
+      .header { fill: #d6e4f0; stroke: #1f2937; stroke-width: 2; }
+      .title { font: 700 22px Georgia, serif; fill: #111827; }
+      .label { font: 600 18px Georgia, serif; fill: #111827; }
+      .text { font: 15px 'Helvetica Neue', Arial, sans-serif; fill: #1f2937; }
+      .small { font: 13px 'Helvetica Neue', Arial, sans-serif; fill: #4b5563; }
+      .line { stroke: #2f5d62; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f5d62"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="820"/>
+  <text class="title" x="700" y="42" text-anchor="middle">Company Enrichment Design</text>
+  <text class="small" x="700" y="66" text-anchor="middle">Canonical company record with source mappings and enrichment separation</text>
+
+  <!-- companies -->
+  <rect class="table" x="470" y="110" width="460" height="270"/>
+  <rect class="header" x="470" y="110" width="460" height="48"/>
+  <text class="label" x="700" y="141" text-anchor="middle">companies</text>
+  <text class="text" x="495" y="186">company_id (PK)</text>
+  <text class="text" x="495" y="214">company_name</text>
+  <text class="text" x="495" y="242">normalized_company_name</text>
+  <text class="text" x="495" y="270">website_domain</text>
+  <text class="text" x="495" y="298">linkedin_company_url</text>
+  <text class="text" x="495" y="326">industry</text>
+  <text class="text" x="705" y="186">employee_size_band</text>
+  <text class="text" x="705" y="214">revenue_band</text>
+  <text class="text" x="705" y="242">hq_country</text>
+  <text class="text" x="705" y="270">hq_region</text>
+  <text class="text" x="705" y="298">hq_city</text>
+  <text class="text" x="705" y="326">company_description</text>
+
+  <!-- source links -->
+  <rect class="table" x="60" y="500" width="380" height="220"/>
+  <rect class="header" x="60" y="500" width="380" height="44"/>
+  <text class="label" x="250" y="528" text-anchor="middle">company_source_links</text>
+  <text class="text" x="82" y="572">company_source_link_id (PK)</text>
+  <text class="text" x="82" y="600">company_id (FK)</text>
+  <text class="text" x="82" y="628">source_name</text>
+  <text class="text" x="82" y="656">source_company_id</text>
+  <text class="text" x="82" y="684">source_company_name</text>
+  <text class="text" x="82" y="712">source_company_url / domain</text>
+
+  <!-- enrichment raw -->
+  <rect class="table" x="510" y="500" width="380" height="220"/>
+  <rect class="header" x="510" y="500" width="380" height="44"/>
+  <text class="label" x="700" y="528" text-anchor="middle">company_enrichment_raw</text>
+  <text class="text" x="532" y="572">company_enrichment_raw_id (PK)</text>
+  <text class="text" x="532" y="600">company_id (FK)</text>
+  <text class="text" x="532" y="628">provider_name</text>
+  <text class="text" x="532" y="656">provider_entity_id</text>
+  <text class="text" x="532" y="684">request_key</text>
+  <text class="text" x="532" y="712">response_payload / fetched_at</text>
+
+  <!-- enrichment latest -->
+  <rect class="table" x="960" y="500" width="360" height="240"/>
+  <rect class="header" x="960" y="500" width="360" height="44"/>
+  <text class="label" x="1140" y="528" text-anchor="middle">company_enrichment_latest</text>
+  <text class="text" x="982" y="572">company_id (FK)</text>
+  <text class="text" x="982" y="600">provider_name</text>
+  <text class="text" x="982" y="628">website_domain</text>
+  <text class="text" x="982" y="656">linkedin_company_url</text>
+  <text class="text" x="982" y="684">industry</text>
+  <text class="text" x="982" y="712">employee_size_band</text>
+  <text class="text" x="982" y="740">revenue_band / HQ / tech signals</text>
+
+  <!-- connectors -->
+  <path class="line" d="M 555 380 C 490 430, 390 450, 300 500" marker-end="url(#arrow)"/>
+  <path class="line" d="M 700 380 L 700 500" marker-end="url(#arrow)"/>
+  <path class="line" d="M 845 380 C 930 430, 1040 450, 1100 500" marker-end="url(#arrow)"/>
+
+  <!-- cardinality labels -->
+  <text class="small" x="540" y="405">1</text>
+  <text class="small" x="305" y="490">many</text>
+  <text class="small" x="710" y="440">many</text>
+  <text class="small" x="1106" y="490">many</text>
+</svg>
