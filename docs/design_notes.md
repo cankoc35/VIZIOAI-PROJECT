@@ -284,7 +284,6 @@ Example explanation structure:
 - `top_reasons`
 
 Example recruiter-facing reasons:
-- matched on `python`, `sql`, and `airflow`
 - role/title similarity is strong
 - seniority is aligned
 - remote preference is compatible
