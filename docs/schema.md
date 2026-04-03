@@ -74,6 +74,35 @@ Direct mappings:
 - `experience_min_years` / `experience_max_years`: Naukri numeric experience columns
 - `industry`: Reed `industry`
 
+### Source-to-Target Mapping Table
+
+| Target Column | Dice | Naukri | Reed |
+| --- | --- | --- | --- |
+| `source_job_id` | `id` | `jobId` | `id` |
+| `source_company_id` |  | `companyId` |  |
+| `job_url` | `url` | `jdURL` | `url` |
+| `apply_url` | `applyUrl` |  |  |
+| `title` | `title` | `title` | `title` |
+| `company_name` | `companyName` | `companyName` | `companyName` |
+| `company_logo_url` | `companyLogo` | `logoPathV3` | `companyLogo` |
+| `company_profile_url` |  | `companyJobsUrl` | `companyProfileURL` |
+| `description_text` | `description` | `jobDescription` | `descriptionText` |
+| `description_html` | `descriptionHtml` |  | `descriptionHtml` |
+| `industry` |  |  | `industry` |
+| `experience_min_years` |  | `minimumExperience` |  |
+| `experience_max_years` |  | `maximumExperience` |  |
+| `location_raw` | `location` | `location` | `jobLocation` |
+| `country` | `country` |  | `jobLocationCountry` |
+| `region` | parsed from `locationDetail` |  | `jobLocationRegion` |
+| `salary_raw` | `salaryRaw` | `salary` | derived from structured salary fields |
+| `salary_min` | parsed | parsed from `salaryDetail` / `salary` | `salaryMin` |
+| `salary_max` | parsed | parsed from `salaryDetail` / `salary` | `salaryMax` |
+| `salary_currency` | parsed | `currency` / parsed from `salaryDetail` | `currency` |
+| `salary_period` | `salaryRawUnit` / inferred from text | inferred from salary text | `salaryTimeUnit` |
+| `date_posted` | `datePosted` | `createdDate` | `datePosted` |
+| `date_updated` | `dateUpdated` |  |  |
+| `valid_through` | `lastApplicationDate` |  | `validThrough` |
+
 Derived fields:
 
 - `workplace_type`: Dice flags, Naukri `location`, Reed `jobLocationType`
