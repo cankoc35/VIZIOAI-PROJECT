@@ -501,6 +501,8 @@ Example candidate metadata:
 
 Access control should restrict retrieval by tenant, team, recruiter assignment, and field sensitivity where needed.
 
+For an MVP, this can be enforced in the backend with simple auth logic based on the current `user_id` and related fields such as role, team, or tenant. The backend can apply those constraints as SQL filters or retrieval metadata filters before any documents are passed to the model.
+
 Practical enforcement point:
 
 - apply access control before documents reach the LLM
@@ -522,9 +524,9 @@ Future:
 
 #### Failure Modes
 
-- stale documents remain indexed
-- semantically similar but operationally invalid records are retrieved
-- metadata filters are too weak
-- duplicate company or candidate identities fragment retrieval
-- long noisy descriptions dominate retrieval
-- AI answers overstate confidence when evidence is weak
+- the system misses the most relevant documents because chunking, indexing, or ranking is weak
+- the system retrieves the wrong documents because semantic similarity is high but business fit is poor
+- metadata filters are incomplete, so retrieval is broad or operationally invalid
+- stale documents remain indexed, so the answer is based on outdated jobs, candidates, or company signals
+- duplicate company or candidate identities fragment retrieval and split the evidence across records
+- the model hallucinates or gives overconfident answers when the retrieved evidence is weak or conflicting

@@ -172,6 +172,20 @@ def infer_naukri_city(location: str) -> str:
     return cleaned
 
 
+def infer_reed_city(location: str) -> str:
+    """Extract a probable city from Reed location text when a simple pattern exists."""
+    cleaned = location.strip()
+    if not cleaned:
+        return ""
+
+    if "," in cleaned:
+        segments = [segment.strip() for segment in cleaned.split(",") if segment.strip()]
+        if segments:
+            return segments[-1]
+
+    return cleaned
+
+
 def derive_dice_employment_type(contract_type: str, position_schedule: str) -> str:
     """Normalize Dice employment signals into a single employment type field."""
     normalized_schedule = normalize_employment_type(position_schedule)

@@ -8,6 +8,7 @@ from typing import Dict, List, Tuple
 from src.utils import (
     derive_dice_employment_type,
     derive_dice_workplace_type,
+    infer_reed_city,
     infer_naukri_city,
     infer_seniority,
     infer_naukri_workplace_type,
@@ -217,7 +218,7 @@ def normalize_reed_row(row: Dict[str, str]) -> Tuple[Dict[str, str], List[Dict[s
     job["seniority"] = infer_seniority(row.get("title", ""))
     job["employment_type"] = normalize_employment_type(row.get("employmentType", ""))
     job["workplace_type"] = normalize_workplace_type(row.get("jobLocationType", ""))
-    job["city"] = (row.get("jobLocation") or "").strip()
+    job["city"] = infer_reed_city(row.get("jobLocation", ""))
     job.update(
         parse_reed_salary(
             row.get("salaryExact", ""),
