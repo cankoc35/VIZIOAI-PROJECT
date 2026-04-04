@@ -17,7 +17,7 @@ The pipeline reads three raw job-board CSV files and produces:
 
 | Column | Description |
 | --- | --- |
-| `job_uid` | Stable ID built from source and source job ID |
+| `job_uid` | Stable ID built from source and source job ID (maybe generate actual `uuid` in production case) |
 | `source` | Source dataset: `dice`, `naukri`, or `reed` |
 | `source_job_id` | Original job ID from the source |
 | `source_company_id` | Original company ID when provided |
@@ -29,8 +29,8 @@ The pipeline reads three raw job-board CSV files and produces:
 | `company_profile_url` | Company profile or company jobs URL when available |
 | `description_text` | Plain-text job description |
 | `description_html` | Raw HTML job description when available |
-| `industry` | Source-provided industry/category when available |
-| `seniority` | Inferred seniority label |
+| `industry` | Source-provided industry/category when available (possible to extract from `description` if needed) |
+| `seniority` | Inferred seniority label (intentionally conservative; future improvementa add heuristic extraction from `description` text) | 
 | `experience_min_years` | Minimum required experience in years when available |
 | `experience_max_years` | Maximum required experience in years when available |
 | `employment_type` | Normalized employment label such as `full_time`, `contract`, `permanent`, `walk_in`, or `internship` |
