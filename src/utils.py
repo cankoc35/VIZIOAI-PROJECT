@@ -46,11 +46,11 @@ DICE_WORKPLACE_COMBINATION_MAP = {
 
 SENIORITY_RULES = (
     ("intern", re.compile(r"\b(intern|internship|trainee|apprentice|graduate)\b")),
-    ("principal", re.compile(r"\b(principal|head|chief|director)\b")),
+    ("principal", re.compile(r"\b(principal|head|chief|director|vp|vice president|executive)\b")),
     ("manager", re.compile(r"\b(manager|mgr)\b")),
     ("lead", re.compile(r"\b(lead|leader)\b")),
-    ("senior", re.compile(r"\b(senior|sr\.?|staff)\b")),
-    ("junior", re.compile(r"\b(junior|jr\.?|entry[- ]level)\b")),
+    ("senior", re.compile(r"\b(senior|sr\.?|staff|expert|architect)\b")),
+    ("junior", re.compile(r"\b(junior|jr\.?|entry[- ]level|associate)\b")),
 )
 
 SALARY_PERIOD_MAP = {
